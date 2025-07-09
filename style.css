@@ -1,0 +1,426 @@
+/* Estilos generales */
+body {
+  background-color: #ffeef2;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh; /* Hace que el body ocupe toda la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra el contenido vertical y horizontalmente */
+}
+
+/* Contenedor principal centrado */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  max-width: 600px; /* Limita el tamaño máximo del contenedor */
+  width: 100%; /* Se ajusta al ancho de la pantalla */
+  gap: 20px; /* Espacio entre los contenedores */
+}
+
+/* Contenedores específicos */
+#nombre-container,
+#bienvenida-container,
+#suma-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ajustes de estilos para los elementos dentro de los contenedores */
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #ffb6c1;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 300px; /* Para que el input no se expanda demasiado */
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  min-width: 120px; /* Para asegurar que los botones tengan un tamaño mínimo */
+}
+
+button:hover {
+  background-color: #ff4d6d;
+}
+
+/* Ocultar elementos */
+.oculto {
+  display: none !important;
+}
+
+
+/* Canvas styles */
+canvas {
+  margin-top: 20px;
+  background-color: #fff0f5;
+  border-radius: 20px;
+  border: 2px solid #ff6b81;
+}
+
+/* Popup styles */
+
+#popup {
+  position: fixed; /* Fija el popup en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+#popup .popup-contenido {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Asegurarse de que esté por encima de todo */
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#popup h2 {
+  margin-bottom: 20px;
+}
+
+#popup button {
+  background-color: #ff6b81;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#popup button:hover {
+  background-color: #ff3b55;
+}
+
+/* Ocultar el popup al principio */
+.oculto {
+  display: none !important;
+}
+
+
+/* Incorrect answer response */
+#respuesta-incorrecta {
+  background-color: #ffe4e9;
+  padding: 30px;
+  border: 2px dashed #ff6b81;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: aparecer 0.5s ease-in-out;
+}
+
+#respuesta-incorrecta h2 {
+  color: #ff4d6d;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#respuesta-incorrecta p {
+  color: #333;
+  font-size: 18px;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Layouts */
+#slider-container, #canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 30px;
+}
+
+#slider-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+#canvas-wrapper {
+  flex-direction: row;
+}
+
+#mensaje-final {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffeef2;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  height: 90px;
+  margin: 15px auto;
+  font-size: 1.3em;
+  gap: 10px;
+}
+
+#mensaje-final h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#mensaje-final .botones-container {
+  display: flex;  
+  justify-content: center; 
+  gap: 20px;
+  width: 100%;
+}
+
+#mensaje-final button {
+  padding: 12px 25px;
+  font-size: 1.2em;
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 120px; 
+}
+
+#mensaje-final button:hover {
+  background-color: #ff4d6d;
+}
+
+
+/* Media queries */
+@media (max-width: 768px) {
+  #canvas-wrapper {
+    flex-direction: row;
+  }
+  /* Adjusting the container and canvas alignment */
+  #canvas-wrapper, #slider-container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajuste de la fuente */
+  body {
+    font-size: 16px;
+  }
+
+  /* Asegura que los botones sean más grandes en móviles */
+  button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  /* Ajuste de las alturas y márgenes en los contenedores */
+  #mensaje-final {
+    font-size: 1.1em;
+    height: 80px;
+    margin: 10px auto;
+  }
+
+  #canvas-wrapper, #slider-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.confeti {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 1;
+  pointer-events: none;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(10px) translateY(100px);
+  }
+  50% {
+    transform: translateX(-20px) translateY(200px);
+  }
+  75% {
+    transform: translateX(20px) translateY(300px);
+  }
+  100% {
+    transform: translateY(500px) rotate(720deg); /* Desplazamiento hacia abajo y giro */
+    opacity: 0;
+  }
+}
+
+@keyframes dispersarse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--confeti-x)) translateY(var(--confeti-y)); /* Movimiento aleatorio en ambas direcciones */
+  }
+}
+
+/* Popup intentos */
+#popup-intentos {
+  position: fixed; /* Fija el popup en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#popup-intentos .popup-contenido {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+#popup-intentos h2 {
+  margin-bottom: 20px;
+}
+
+#popup-intentos button {
+  background-color: #ff6b81;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#popup-intentos button:hover {
+  background-color: #ff3b55;
+}
+
+/* Estilos para el popup de reintentar */
+#popup-no {
+  position: fixed; /* Fija el popup en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#popup-no .popup-contenido {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+#popup-no h2 {
+  margin-bottom: 20px;
+}
+
+#popup-no button {
+  background-color: #ff6b81;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#popup-no button:hover {
+  background-color: #ff3b55;
+}
+
+/* Fondo oscuro para el popup */
+#popup-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  z-index: 999; /* Asegurarse de que esté detrás del popup */
+  display: none; /* Oculto por defecto */
+}
+
+/* Popup de respuesta incorrecta */
+#popup-incorrecto {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Asegurarse de que esté por encima de todo */
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#popup-incorrecto h2 {
+  color: #ff6b81;
+  font-size: 1.5em;
+}
+
+#popup-incorrecto button {
+  padding: 10px 20px;
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#popup-incorrecto button:hover {
+  background-color: #ff3b55;
+}

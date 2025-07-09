@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Una pregunta especial ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Contenedor para ingresar el nombre -->
+    <div id="nombre-container">
+      <h1>Bienvenido, ¿cómo te llamas?</h1>
+      <input type="text" id="nombre" placeholder="Tu nombre" />
+      <button onclick="iniciar()">Iniciar</button>
+    </div>
+
+    <!-- Contenedor de la bienvenida -->
+    <div id="bienvenida-container" class="oculto">
+      <h2 id="mensaje-bienvenida"></h2>
+      <p>Esto es una prueba facil....</p>
+    </div>
+
+    <!-- Contenedor de la pregunta matemática -->
+    <div id="suma-container" class="oculto">
+      <h1>¿Cuánto es 2 + 2?</h1>
+      <input type="number" id="respuesta" />
+      <button onclick="verificarSuma()">Verificar</button>
+    </div>
+
+    <!-- Contenedor del slider, que estará oculto hasta que la respuesta sea correcta -->
+    <div id="slider-container" class="oculto">
+      <h2>Desliza para descubrir algo bonito</h2>
+      <input type="range" min="0" max="100" value="0" id="slider" oninput="dibujarCorazon()" />
+    </div>
+
+    <!-- Contenedor del canvas (Corazón), inicialmente oculto -->
+    <div id="canvas-wrapper" class="oculto">
+      <canvas id="corazonCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <!-- Contenedor del mensaje final (se muestra después de que el slider llegue al 100%) -->
+    <div id="mensaje-final" class="oculto">
+      <h1>💖 ¿Quieres ser mi novia? 💖</h1>
+      <button id="btn-si" onclick="respuesta('Sí')">Sí</button>
+      <button id="btn-no" onclick="respuesta('No')">No</button>
+    </div>
+
+    <!-- Popup para mostrar mensaje después de la respuesta correcta en la suma -->
+    <div id="popup" class="oculto">
+      <div class="popup-contenido">
+        <h2>¡Felicidades!</h2>
+        <p>Tu respuesta es correcta. Ahora, desliza el control para ver algo especial.</p>
+        <button onclick="mostrarSlider()">Continuar</button>
+      </div>
+    </div>
+
+    <div id="popup-no" class="oculto">
+      <div class="popup-contenido">
+        <h2>Estas conciente de tu respuesta!</h2>
+        <p>Te puedo dar otra oportunidad...</p>
+        <button onclick="reiniciarpregunta()">Cambie de opinion</button>
+        <button onclick="cancelar()">Estoy consiente!</button>
+      </div>
+    </div>
+
+
+    <!-- Mensaje para cuando la respuesta de la suma es incorrecta -->
+    <!-- Fondo oscuro para el popup -->
+    <div id="popup-fondo" class="oculto"></div>
+
+    <!-- Popup de Respuesta Incorrecta -->
+    <div id="popup-incorrecto" class="oculto">
+      <div class="popup-contenido">
+        <h2>¡Respuesta Incorrecta!</h2>
+        <p>Intenta nuevamente.</p>
+        <button onclick="reiniciar()">Reintentar</button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
