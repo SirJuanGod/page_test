@@ -4,7 +4,7 @@ function iniciar() {
   // Obtener el nombre del usuario
   const nombre = document.getElementById("nombre").value;
   if (nombre.trim() === "") {
-    alert("Por favor, ingresa tu nombre.");
+    document.getElementById("popup-no-name").classList.remove("oculto");
     return;
   }
 
@@ -245,4 +245,15 @@ function cancelar() {
   // Esta función se llama cuando el usuario presiona "Cancelar" en el popup
   document.getElementById("popup").classList.add("oculto");
   document.getElementById("mensaje-final").classList.add("oculto");
+}
+
+function reiniciar_name() {
+  // Ocultar el popup de nombre no ingresado
+  document.getElementById("popup-no-name").classList.add("oculto");
+
+  // Limpiar el campo de nombre
+  document.getElementById("nombre").value = "";
+
+  // Volver a mostrar el contenedor del nombre
+  document.getElementById("nombre-container").classList.remove("oculto");
 }
