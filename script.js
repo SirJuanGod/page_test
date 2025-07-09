@@ -7,6 +7,7 @@ function iniciar() {
     document.getElementById("popup-no-name").classList.remove("oculto");
     return;
   }
+    nombreUsuario = nombre;
 
   // Ocultar el cuadro de texto y mostrar la bienvenida
   document.getElementById("nombre-container").classList.add("oculto");
@@ -78,7 +79,7 @@ function dibujarCorazon() {
   }
 
   ctx.strokeStyle = "#ff6b81";
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 5;
   ctx.stroke(path);
 
   // Cuando el slider llega a 100% (corazón completo), rellena el corazón y muestra el mensaje
@@ -128,7 +129,7 @@ function mostrarMensajeTeAmoYConfeti() {
   document.getElementById("canvas-wrapper").classList.add("oculto");
   document.getElementById("popup").classList.add("oculto");
   
-  // Mostrar el mensaje "Te amo"
+  // Crear el mensaje "Te amo" con el nombre del usuario
   const mensajeTeAmo = document.createElement("div");
   mensajeTeAmo.style.position = "absolute";
   mensajeTeAmo.style.top = "50%";
@@ -139,7 +140,9 @@ function mostrarMensajeTeAmoYConfeti() {
   mensajeTeAmo.style.fontWeight = "bold";
   mensajeTeAmo.style.textAlign = "center";
   mensajeTeAmo.style.zIndex = "9999"; // Asegurarse de que se vea por encima de todo
-  mensajeTeAmo.innerText = "¡Te amo! ❤️";
+  
+  // Usar el nombre del usuario
+  mensajeTeAmo.innerText = `¡Te amo! ${nombreUsuario} ❤️`;
 
   // Añadir el mensaje al DOM
   document.body.appendChild(mensajeTeAmo);
@@ -153,7 +156,7 @@ function mostrarMensajeTeAmoYConfeti() {
     // Después de 3 segundos, recargar la página
     setTimeout(() => {
       location.reload(); // Recargar la página después de mostrar el confeti
-    }, 3000);
+    }, 30000);
   }, 500); // Esperar 1 segundo antes de generar el confeti
 }
 
