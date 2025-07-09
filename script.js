@@ -140,8 +140,6 @@ function mostrarMensajeTeAmoYConfeti() {
   mensajeTeAmo.style.fontWeight = "bold";
   mensajeTeAmo.style.textAlign = "center";
   mensajeTeAmo.style.zIndex = "9999"; // Asegurarse de que se vea por encima de todo
-  
-  // Usar el nombre del usuario
   mensajeTeAmo.innerText = `¡Te amo! ${nombreUsuario} ❤️`;
 
   // Añadir el mensaje al DOM
